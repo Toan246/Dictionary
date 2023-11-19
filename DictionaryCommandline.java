@@ -7,15 +7,4 @@ class DictionaryCommandline {
             System.out.printf("%-3d| %-15s| %s%n", index++, word.word_target, word.word_explain);
         }
     }
-
-    public void dictionaryBasic() {
-        Dictionary dictionary = new Dictionary();
-        DictionaryManagement management = new DictionaryManagement();
-
-        // Insert words from command line
-        management.insertFromCommandline(dictionary);
-
-        // Show all words
-        showAllWords(dictionary);
-    }
 }
