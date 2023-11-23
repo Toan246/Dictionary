@@ -33,6 +33,10 @@ class VocabularyPanel extends JPanel {
         meaningTextArea.setEditable(false);
         JScrollPane meaningScrollPane = new JScrollPane(meaningTextArea);
 
+        Font font = new Font("Times New Roman", Font.PLAIN, 16);
+        wordListTextArea.setFont(font);
+        meaningTextArea.setFont(font);
+
         JPanel buttonPanel = new JPanel();
         searchButton = new JButton("Search");
         addWordButton = new JButton("Add Word");
@@ -47,6 +51,15 @@ class VocabularyPanel extends JPanel {
         buttonPanel.add(deleteWordButton);
         buttonPanel.add(pronounceButton);
         buttonPanel.add(quizButton);
+
+        Font buttonFont = new Font("Times New Roman", Font.PLAIN, 16);
+        searchButton.setFont(buttonFont);
+        addWordButton.setFont(buttonFont);
+        editWordButton.setFont(buttonFont);
+        deleteWordButton.setFont(buttonFont);
+        pronounceButton.setFont(buttonFont);
+        quizButton.setFont(buttonFont);
+
 
         add(wordListScrollPane, BorderLayout.WEST);
         add(meaningScrollPane, BorderLayout.CENTER);
@@ -113,6 +126,8 @@ class VocabularyPanel extends JPanel {
         for (Word word : dictionary.words) {
             if (word.word_target.toLowerCase().startsWith(prefix.toLowerCase())) {
                 searchResults.append(word.word_target).append(": ").append(word.word_explain).append("\n");
+            } else if (word.word_explain.toLowerCase().startsWith(prefix.toLowerCase())) {
+                searchResults.append(word.word_explain).append(": ").append(word.word_target).append("\n");
             }
         }
         meaningTextArea.setText(searchResults.toString());
@@ -140,15 +155,5 @@ class VocabularyPanel extends JPanel {
 
     private void runQuizGame() {
         new QuizDialog((Frame) SwingUtilities.getWindowAncestor(this), game);
-    }
-
-    public JTextArea getQuestionTextArea() {
-        JTextArea questionTextArea = null;
-        return questionTextArea;
-    }
-
-    public JRadioButton[] getAnswerOptions() {
-        JRadioButton[] answerOptions = new JRadioButton[0];
-        return answerOptions;
     }
 }

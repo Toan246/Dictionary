@@ -45,6 +45,9 @@ class DictionaryManagement {
             if (w.word_target.equalsIgnoreCase(word)) {
                 System.out.println("Meaning: " + w.word_explain);
                 return;
+            } else if (w.word_explain.equalsIgnoreCase(word)) {
+                System.out.println("Meaning: " + w.word_target);
+                return;
             }
         }
         System.out.println("Word not found in the dictionary.");

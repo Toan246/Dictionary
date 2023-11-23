@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 
 public class DictionaryApplication {
@@ -10,6 +11,10 @@ public class DictionaryApplication {
 
     private static void createAndShowGUI() {
         JFrame frame = new JFrame("Dictionary Application");
+
+        ImageIcon icon = new ImageIcon("res/logo.png"); // Thay đổi đường dẫn đến icon của bạn
+        frame.setIconImage(icon.getImage());
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Create an instance of VocabularyPanel
