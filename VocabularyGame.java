@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-class VocabularyGame {
+class VocabularyGame extends DictionaryCommandline {
     private VocabularyQuiz[] quizzes;
     private Random random;
 

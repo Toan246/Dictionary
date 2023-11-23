@@ -1,0 +1,280 @@
+﻿
+hello	xin chào
+apple	táo
+banana	chuối
+orange	cam
+grape	nho
+watermelon	dưa hấu
+pear	lê
+peach	đào
+mango	xoài
+pineapple	dứa
+strawberry	dâu
+raspberry	mâm xôi
+blackberry	việt quất
+blueberry	blueberry
+coconut	dừa
+lemon	chanh
+lime	tắc
+pumpkin	bí ngô
+carrot	cà rốt
+celery	cần tây
+potato	khoai tây
+onion	hành tây
+garlic	tỏi
+ginger	gừng
+mushroom	nấm
+asparagus	măng tây
+broccoli	bông cải xanh
+cauliflower	súp lơ
+cabbage	bắp cải
+lettuce	xà lách
+spinach	rau bina
+tomato	cà chua
+cucumber	dưa chuột
+bell pepper	ớt chuông
+green pepper	ớt xanh
+red pepper	ớt đỏ
+yellow pepper	ớt vàng
+hot pepper	ớt cay
+bean	đậu
+lentil	đậu lăng
+chickpea	đậu xanh
+peanut	đậu phộng
+almond	hạnh nhân
+cashew nut	hạt điều
+walnut	hạt óc chó
+pistachio	hạt pista
+pine nut	hạt thông
+olive	ô liu
+avocado	bơ
+honey	mật ong
+butter	bơ
+milk	sữa
+cheese	pho mát
+yogurt	sữa chua
+cream	kem
+egg	trứng
+meat	thịt
+fish	cá
+chicken	gà
+beef	thịt bò
+pork	thịt lợn
+lamb	thịt cừu
+duck	thịt vịt
+turkey	thịt gà tây
+ham	thịt nguội
+bacon	thịt xông khói
+sausage	xúc xích
+hot dog	xúc xích
+sandwich	bánh mì kẹp
+pizza	pizza
+pasta	mì ống
+rice	cơm
+noodle	mì
+soup	súp
+salad	salad
+sandwich	bánh mì kẹp
+pizza	pizza
+pasta	mì ống
+rice	cơm
+noodle	mì
+soup	súp
+salad	salad
+cake	bánh
+cookie	bánh quy
+ice cream	kem
+chocolate	sô cô la
+candy	kẹo
+soda	nước ngọt
+juice	nước ép
+coffee	cà phê
+tea	trà
+wine	rượu vang
+beer	bia
+vodka	vodka
+whiskey	rượu whisky
+gin	rượu gin
+rum	rượu rum
+tequila	rượu tequila
+brandy	rượu brandy
+liqueur	rượu mùi
+champagne	rượu sâm panh
+home	nhà
+school	trường học
+work	công việc
+friend	bạn bè
+family	gia đình
+love	tình yêu
+hate	ghét
+happy	hạnh phúc
+sad	buồn
+angry	tức giận
+scared	sợ hãi
+excited	háo hức
+tired	mệt mỏi
+hungry	đói
+thirsty	khát
+cold	lạnh
+hot	nóng
+beautiful	xinh đẹp
+handsome	đẹp trai
+tall	cao
+short	thấp
+fat	béo
+thin	gầy
+rich	giàu có
+poor	nghèo
+healthy	khỏe mạnh
+sick	ốm
+alive	sống
+dead	chết
+true	đúng
+false	sai
+good	tốt
+bad	xấu
+big	lớn
+small	nhỏ
+heavy	nặng
+light	nhẹ
+new	mới
+old	cũ
+fast	nhanh
+slow	chậm
+near	gần
+far	xa
+here	đây
+there	kia
+in	trong
+out	ngoài
+up	lên
+down	xuống
+left	trái
+right	phải
+front	trước
+back	sau
+animal	động vật
+bird	chim
+fish	cá
+mammal	động vật có vú
+insect	côn trùng
+reptile	bò sát
+amphibian	lưỡng cư
+plant	cây
+flower	hoa
+tree	cây
+leaf	lá
+stem	thân cây
+root	rễ
+fruit	quả
+seed	hạt
+soil	đất
+water	nước
+air	không khí
+sun	mặt trời
+moon	mặt trăng
+star	sao
+galaxy	dải ngân hà
+universe	vũ trụ
+country	quốc gia
+city	thành phố
+town	thị trấn
+village	làng mạc
+street	đường phố
+house	nhà
+building	tòa nhà
+school	trường học
+hospital	bệnh viện
+police station	đồn cảnh sát
+fire station	trạm cứu hỏa
+library	thư viện
+museum	bảo tàng
+park	công viên
+beach	bãi biển
+mountain	núi
+river	sông
+lake	hồ
+ocean	đại dương
+time	thời gian
+day	ngày
+night	đêm
+hour	giờ
+minute	phút
+second	giây
+week	tuần
+month	tháng
+year	năm
+season	mùa
+spring	mùa xuân
+summer	mùa hè
+fall	mùa thu
+winter	mùa đông
+weather	thời tiết
+hot	nóng
+cold	lạnh
+sunny	nắng
+cloudy	mây
+rainy	mưa
+snowy	tuyết
+windy	gió
+calm	êm đềm
+language	ngôn ngữ
+speak	nói
+listen	nghe
+read	đọc
+write	viết
+understand	hiểu
+learn	học
+teach	dạy
+translate	dịch
+art	nghệ thuật
+music	âm nhạc
+dance	khiêu vũ
+theater	sân khấu
+film	phim
+book	sách
+magazine	tạp chí
+newspaper	báo
+computer	máy tính
+internet	internet
+email	email
+phone	điện thoại
+television	tivi
+radio	radio
+camera	máy ảnh
+car	ô tô
+bus	xe buýt
+train	tàu hỏa
+airplane	máy bay
+ship	tàu
+boat	thuyền
+bicycle	xe đạp
+walk	đi bộ
+run	chạy
+jump	nhảy
+swim	bơi lội
+play	chơi
+watch	xem
+hear	nghe
+smell	ngửi
+taste	nếm
+touch	chạm vào
+feel	cảm thấy
+want	muốn
+need	cần
+like	thích
+love	yêu
+hate	ghét
+think	nghĩ
+know	biết
+believe	tin tưởng
+hope	hy vọng
+dream	mơ ước
+remember	nhớ
+forget	quên
+understand	hiểu
+learn	học
+teach	dạy
+tell	kể
+ask	hỏi
+answer	trả lời

@@ -34,7 +34,7 @@ class DictionaryCommandline {
     public void dictionaryAdvanced() {
         Scanner scanner = new Scanner(System.in);
         Dictionary dictionary = new Dictionary();
-        management.insertFromFile(dictionary, "dictionaries.txt");
+        management.insertFromFile(dictionary, "dictionaries");
 
         while (true) {
             System.out.println("Welcome to My Application!");
@@ -116,5 +116,18 @@ class DictionaryCommandline {
                     break;
             }
         }
+    }
+
+    public String dictionaryLookup(String wordToLookup) {
+        Dictionary dictionary = new Dictionary();
+        management.insertFromFile(dictionary, "dictionaries");
+
+        for (Word word : dictionary.words) {
+            if (word.word_target.equalsIgnoreCase(wordToLookup)) {
+                return "Meaning: " + word.word_explain;
+            }
+        }
+
+        return "Word not found in the dictionary.";
     }
 }
