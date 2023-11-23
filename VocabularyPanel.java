@@ -4,19 +4,21 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 class VocabularyPanel extends JPanel {
-    private JTextArea wordListTextArea;
-    private JTextArea meaningTextArea;
+    public JTextArea wordListTextArea;
+    public JTextArea meaningTextArea;
     private JButton searchButton;
     private JButton addWordButton;
     private JButton editWordButton;
     private JButton deleteWordButton;
     private JButton pronounceButton;
     private JButton quizButton;
+    private VocabularyGame game;
 
     private Dictionary dictionary;
     private DictionaryManagement management;
 
     public VocabularyPanel() {
+        this.game = new VocabularyGame();
         this.dictionary = new Dictionary();
         this.management = new DictionaryManagement();
         management.insertFromFile(dictionary, "dictionaries");
@@ -137,7 +139,16 @@ class VocabularyPanel extends JPanel {
     }
 
     private void runQuizGame() {
-        VocabularyGame game = new VocabularyGame();
-        game.startGame();
+        new QuizDialog((Frame) SwingUtilities.getWindowAncestor(this), game);
+    }
+
+    public JTextArea getQuestionTextArea() {
+        JTextArea questionTextArea = null;
+        return questionTextArea;
+    }
+
+    public JRadioButton[] getAnswerOptions() {
+        JRadioButton[] answerOptions = new JRadioButton[0];
+        return answerOptions;
     }
 }

@@ -1,19 +1,21 @@
 import javax.swing.*;
 
+
 public class DictionaryApplication {
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                createAndShowGUI();
-            }
+        SwingUtilities.invokeLater(() -> {
+            createAndShowGUI();
         });
     }
 
     private static void createAndShowGUI() {
         JFrame frame = new JFrame("Dictionary Application");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().add(new VocabularyPanel());
+
+        // Create an instance of VocabularyPanel
+        VocabularyPanel vocabularyPanel = new VocabularyPanel();
+        frame.getContentPane().add(vocabularyPanel);
+
         frame.pack();
         frame.setVisible(true);
     }
