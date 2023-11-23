@@ -25,11 +25,11 @@ class VocabularyPanel extends JPanel {
 
         setLayout(new BorderLayout());
 
-        wordListTextArea = new JTextArea(20, 20);
+        wordListTextArea = new JTextArea(25, 30);
         wordListTextArea.setEditable(false);
         JScrollPane wordListScrollPane = new JScrollPane(wordListTextArea);
 
-        meaningTextArea = new JTextArea(20, 20);
+        meaningTextArea = new JTextArea(25, 30);
         meaningTextArea.setEditable(false);
         JScrollPane meaningScrollPane = new JScrollPane(meaningTextArea);
 

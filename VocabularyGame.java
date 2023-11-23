@@ -11,6 +11,7 @@ class VocabularyGame {
     private int correctIndex;
     private VocabularyPanel vocabularyPanel;
     private boolean quizCompleted;
+    public int score;
 
     public VocabularyGame() {
         this.vocabularyPanel = vocabularyPanel;
@@ -61,18 +62,6 @@ class VocabularyGame {
             }
         }
         return false;
-    }
-
-    private void loadNextQuestion() {
-        VocabularyQuiz quiz = getNextQuiz();
-        if (quiz != null) {
-            vocabularyPanel.getQuestionTextArea().setText(quiz.getQuestion());
-            String[] choices = quiz.getChoices();
-            for (int i = 0; i < vocabularyPanel.getAnswerOptions().length; i++) {
-                vocabularyPanel.getAnswerOptions()[i].setText(choices[i]);
-                vocabularyPanel.getAnswerOptions()[i].setSelected(false);
-            }
-        }
     }
 
     public String getCorrectAnswer() {
@@ -131,5 +120,9 @@ class VocabularyGame {
             }
         }
         System.out.println("Game Over. Your score: " + score + "/" + quizzes.size());
+    }
+
+    public int getScore() {
+        return score;
     }
 }

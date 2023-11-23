@@ -10,6 +10,7 @@ class QuizDialog extends JDialog {
     private JRadioButton[] answerOptions;
     private JButton submitButton;
     private int selectedAnswer;
+    private int score = 0;
 
     public QuizDialog(Frame parent, VocabularyGame game) {
         super(parent, true);
@@ -19,7 +20,7 @@ class QuizDialog extends JDialog {
         setLayout(new BorderLayout());
         setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 
-        questionTextArea = new JTextArea(5, 20);
+        questionTextArea = new JTextArea(10, 30);
         questionTextArea.setEditable(false);
         JScrollPane questionScrollPane = new JScrollPane(questionTextArea);
 
@@ -63,18 +64,19 @@ class QuizDialog extends JDialog {
     }
 
     private void loadNextQuestion() {
-        resetAnswer();
-        VocabularyQuiz quiz = game.getNextQuiz();
-        if (quiz != null) {
-            questionTextArea.setText(quiz.getQuestion());
-            String[] choices = quiz.getChoices();
-            for (int i = 0; i < answerOptions.length; i++) {
-                answerOptions[i].setText(choices[i]);
-                answerOptions[i].setSelected(false);
+        resetAnswer(); // Gọi phương thức resetAnswer trước khi tải câu hỏi mới
+
+        if (game.hasMoreQuestions()) {
+            VocabularyQuiz quiz = game.getNextQuiz();
+            if (quiz != null) {
+                questionTextArea.setText(quiz.getQuestion());
+                String[] choices = quiz.getChoices();
+                for (int i = 0; i < answerOptions.length; i++) {
+                    answerOptions[i].setText(choices[i]);
+                }
             }
         } else {
-            // Handle the end of the quiz
-            JOptionPane.showMessageDialog(this, "Quiz Completed!");
+            JOptionPane.showMessageDialog(this, "Quiz Completed! Your final score: " + game.getScore(), "Quiz Completed", JOptionPane.INFORMATION_MESSAGE);
             dispose();
         }
     }
@@ -90,6 +92,7 @@ class QuizDialog extends JDialog {
         if (selectedAnswer != -1) {
             boolean isCorrect = game.checkAnswer(selectedAnswer);
             if (isCorrect) {
+                score++;
                 JOptionPane.showMessageDialog(null, "Correct!");
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrect. The correct answer is " + game.getCorrectAnswer(), "Incorrect Answer", JOptionPane.ERROR_MESSAGE);
@@ -100,6 +103,7 @@ class QuizDialog extends JDialog {
                 loadNextQuestion();
             } else {
                 JOptionPane.showMessageDialog(null, "Quiz Completed!");
+                JOptionPane.showMessageDialog(null, "Your score is " + score);
                 game.resetGame();  // Đặt lại trò chơi
                 dispose();
             }
