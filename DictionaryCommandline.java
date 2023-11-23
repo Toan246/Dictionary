@@ -88,7 +88,7 @@ class DictionaryCommandline {
                     showAllWords(dictionary);
                     break;
                 case 5:
-                    System.out.print("Enter English word to lookup: ");
+                    System.out.print("Enter word to lookup: ");
                     String wordToLookup = scanner.nextLine();
                     management.dictionaryLookup(dictionary, wordToLookup);
                     break;

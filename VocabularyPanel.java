@@ -1,7 +1,11 @@
 import javax.swing.*;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.Utilities;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 class VocabularyPanel extends JPanel {
     public JTextArea wordListTextArea;
@@ -25,15 +29,15 @@ class VocabularyPanel extends JPanel {
 
         setLayout(new BorderLayout());
 
-        wordListTextArea = new JTextArea(25, 30);
+        wordListTextArea = new JTextArea(15, 20);
         wordListTextArea.setEditable(false);
         JScrollPane wordListScrollPane = new JScrollPane(wordListTextArea);
 
-        meaningTextArea = new JTextArea(25, 30);
+        meaningTextArea = new JTextArea(15, 20);
         meaningTextArea.setEditable(false);
         JScrollPane meaningScrollPane = new JScrollPane(meaningTextArea);
 
-        Font font = new Font("Times New Roman", Font.PLAIN, 16);
+        Font font = new Font("Times New Roman", Font.PLAIN, 25);
         wordListTextArea.setFont(font);
         meaningTextArea.setFont(font);
 
@@ -119,6 +123,31 @@ class VocabularyPanel extends JPanel {
             wordListBuilder.append(word.word_target).append("\n");
         }
         wordListTextArea.setText(wordListBuilder.toString());
+
+        wordListTextArea.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                JTextArea textArea = (JTextArea) e.getSource();
+                int offset = textArea.viewToModel(e.getPoint());
+                try {
+                    int rowStart = Utilities.getRowStart(textArea, offset);
+                    int rowEnd = Utilities.getRowEnd(textArea, offset);
+                    String selectedWord = textArea.getText().substring(rowStart, rowEnd).trim();
+                    displayTranslation(selectedWord);
+                } catch (BadLocationException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
+    }
+
+    private void displayTranslation(String selectedWord) {
+        for (Word word : dictionary.words) {
+            if (word.word_target.equalsIgnoreCase(selectedWord)) {
+                meaningTextArea.setText(word.word_explain);
+                break;
+            }
+        }
     }
 
     private void dictionarySearcher(String prefix) {
