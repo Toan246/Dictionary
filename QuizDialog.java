@@ -57,7 +57,13 @@ class QuizDialog extends JDialog {
         setVisible(true);
     }
 
+    private void resetAnswer() {
+        selectedAnswer = -1; // Đặt lại câu trả lời đã chọn
+        answerGroup.clearSelection(); // Xóa chọn của tất cả radio button
+    }
+
     private void loadNextQuestion() {
+        resetAnswer();
         VocabularyQuiz quiz = game.getNextQuiz();
         if (quiz != null) {
             questionTextArea.setText(quiz.getQuestion());
@@ -87,12 +93,14 @@ class QuizDialog extends JDialog {
                 JOptionPane.showMessageDialog(null, "Correct!");
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrect. The correct answer is " + game.getCorrectAnswer(), "Incorrect Answer", JOptionPane.ERROR_MESSAGE);
+                game.setQuizCompleted(true);
             }
 
             if (game.hasMoreQuestions()) {
                 loadNextQuestion();
             } else {
                 JOptionPane.showMessageDialog(null, "Quiz Completed!");
+                game.resetGame();  // Đặt lại trò chơi
                 dispose();
             }
         } else {
