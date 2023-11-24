@@ -16,12 +16,19 @@ class DictionaryCommandline {
         }
     }
 
-    public void dictionarySearcher(Dictionary dictionary, String prefix) {
-        System.out.println("Search results for prefix '" + prefix + "':");
+    public void dictionarySearcher(Dictionary dictionary, String query) {
+        System.out.println("Search results for '" + query + "':");
+        boolean found = false;
+
         for (Word word : dictionary.words) {
-            if (word.word_target.toLowerCase().startsWith(prefix.toLowerCase())) {
+            if (word.word_target.toLowerCase().contains(query.toLowerCase())) {
                 System.out.println(word.word_target + ": " + word.word_explain);
+                found = true;
             }
+        }
+
+        if (!found) {
+            System.out.println("No matching words found.");
         }
     }
 

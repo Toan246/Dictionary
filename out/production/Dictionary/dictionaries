@@ -1,280 +1,376 @@
 ﻿
 hello	xin chào
-apple	táo
-banana	chuối
-orange	cam
-grape	nho
-watermelon	dưa hấu
-pear	lê
-peach	đào
-mango	xoài
-pineapple	dứa
-strawberry	dâu
-raspberry	mâm xôi
-blackberry	việt quất
-blueberry	blueberry
-coconut	dừa
-lemon	chanh
-lime	tắc
-pumpkin	bí ngô
-carrot	cà rốt
-celery	cần tây
-potato	khoai tây
-onion	hành tây
-garlic	tỏi
-ginger	gừng
-mushroom	nấm
-asparagus	măng tây
-broccoli	bông cải xanh
-cauliflower	súp lơ
-cabbage	bắp cải
-lettuce	xà lách
-spinach	rau bina
-tomato	cà chua
-cucumber	dưa chuột
-bell pepper	ớt chuông
-green pepper	ớt xanh
-red pepper	ớt đỏ
-yellow pepper	ớt vàng
-hot pepper	ớt cay
-bean	đậu
-lentil	đậu lăng
-chickpea	đậu xanh
-peanut	đậu phộng
-almond	hạnh nhân
-cashew nut	hạt điều
-walnut	hạt óc chó
-pistachio	hạt pista
-pine nut	hạt thông
-olive	ô liu
-avocado	bơ
-honey	mật ong
-butter	bơ
-milk	sữa
-cheese	pho mát
-yogurt	sữa chua
-cream	kem
-egg	trứng
-meat	thịt
-fish	cá
-chicken	gà
-beef	thịt bò
-pork	thịt lợn
-lamb	thịt cừu
-duck	thịt vịt
-turkey	thịt gà tây
-ham	thịt nguội
-bacon	thịt xông khói
-sausage	xúc xích
-hot dog	xúc xích
-sandwich	bánh mì kẹp
-pizza	pizza
-pasta	mì ống
-rice	cơm
-noodle	mì
-soup	súp
-salad	salad
-sandwich	bánh mì kẹp
-pizza	pizza
-pasta	mì ống
-rice	cơm
-noodle	mì
-soup	súp
-salad	salad
-cake	bánh
-cookie	bánh quy
-ice cream	kem
-chocolate	sô cô la
-candy	kẹo
-soda	nước ngọt
-juice	nước ép
-coffee	cà phê
-tea	trà
-wine	rượu vang
-beer	bia
-vodka	vodka
-whiskey	rượu whisky
-gin	rượu gin
-rum	rượu rum
-tequila	rượu tequila
-brandy	rượu brandy
-liqueur	rượu mùi
-champagne	rượu sâm panh
-home	nhà
-school	trường học
-work	công việc
-friend	bạn bè
-family	gia đình
-love	tình yêu
+goodbye	tạm biệt
+please	làm ơn
+thank you	cảm ơn
+sorry	xin lỗi
+yes	có
+no	không
+love	yêu
 hate	ghét
 happy	hạnh phúc
 sad	buồn
-angry	tức giận
-scared	sợ hãi
-excited	háo hức
-tired	mệt mỏi
+angry	giận
+excited	hứng thú
+tired	mệt
 hungry	đói
 thirsty	khát
 cold	lạnh
 hot	nóng
-beautiful	xinh đẹp
-handsome	đẹp trai
-tall	cao
-short	thấp
-fat	béo
-thin	gầy
-rich	giàu có
-poor	nghèo
-healthy	khỏe mạnh
-sick	ốm
-alive	sống
-dead	chết
-true	đúng
-false	sai
-good	tốt
-bad	xấu
 big	lớn
 small	nhỏ
-heavy	nặng
-light	nhẹ
-new	mới
-old	cũ
+long	dài
+short	ngắn
 fast	nhanh
 slow	chậm
+old	cũ
+new	mới
+good	tốt
+bad	xấu
+beautiful	đẹp
+ugly	xấu xí
+clean	sạch
+dirty	bẩn
+easy	dễ
+difficult	khó
+light	sáng
+dark	tối
+early	sớm
+late	trễ
 near	gần
 far	xa
-here	đây
-there	kia
-in	trong
-out	ngoài
-up	lên
-down	xuống
-left	trái
-right	phải
-front	trước
-back	sau
-animal	động vật
-bird	chim
-fish	cá
-mammal	động vật có vú
-insect	côn trùng
-reptile	bò sát
-amphibian	lưỡng cư
-plant	cây
-flower	hoa
-tree	cây
-leaf	lá
-stem	thân cây
-root	rễ
-fruit	quả
-seed	hạt
-soil	đất
-water	nước
-air	không khí
-sun	mặt trời
-moon	mặt trăng
-star	sao
-galaxy	dải ngân hà
-universe	vũ trụ
-country	quốc gia
-city	thành phố
-town	thị trấn
-village	làng mạc
-street	đường phố
-house	nhà
-building	tòa nhà
-school	trường học
-hospital	bệnh viện
-police station	đồn cảnh sát
-fire station	trạm cứu hỏa
-library	thư viện
-museum	bảo tàng
-park	công viên
-beach	bãi biển
-mountain	núi
-river	sông
-lake	hồ
-ocean	đại dương
+high	cao
+low	thấp
+loud	to
+quiet	êm
+strong	mạnh 
+weak	yếu
+rich	giàu
+poor	nghèo
+expensive	đắt
+cheap	rẻ
+right	đúng
+wrong	sai
+open	mở
+close	đóng
+full	đầy
+empty	trống
+heavy	nặng
+light	nhẹ
+wet	ướt
+dry	khô
+sweet	ngọt 
+sour	chua
+bitter	đắng
+spicy	cay
+salty	mặn
+soft	mềm
+hard	cứng 
+smooth	mịn
+rough	ghồ ghề
+thin	mỏng
+thick	dày
+narrow	hẹp
+wide	rộng
+straight	thẳng
+curved	cong
+flat	bằng phẳng
+round	tròn
+square	vuông
+triangle	tam giác
+circle	hình tròn
+rectangle	hình chữ nhật
+star	ngôi sao
+heart	trái tim
+diamond	đá quý
+oval	hình oval
+cube	hình lập phương
+sphere	hình cầu
+cylinder	hình trụ
+cone	hình nón
+pyramid	hình chóp
+prism	hình lăng trụ
+line	đường thẳng
+point	điểm
+angle	góc
+surface	bề mặt
+edge	cạnh
+corner	góc
+hole	lỗ
+space	không gian
 time	thời gian
 day	ngày
 night	đêm
+morning	sáng
+afternoon	chiều
+evening	tối
+midnight	nửa đêm
 hour	giờ
 minute	phút
 second	giây
 week	tuần
 month	tháng
 year	năm
-season	mùa
 spring	mùa xuân
 summer	mùa hè
-fall	mùa thu
-winter	mùa đông
+autumn	mùa thu
+winter	mùa đông 
+today	hôm nay
+tomorrow	ngày mai
+yesterday	hôm qua
+birthday	sinh nhật
+holiday	ngày lễ
+anniversary	kỷ niệm
+season	mùa
 weather	thời tiết
-hot	nóng
-cold	lạnh
-sunny	nắng
-cloudy	mây
-rainy	mưa
-snowy	tuyết
-windy	gió
-calm	êm đềm
-language	ngôn ngữ
-speak	nói
-listen	nghe
-read	đọc
-write	viết
+rain	mưa
+snow	tuyết
+wind	gió
+storm	bão
+thunder	sấm
+lightning	chớp
+cloud	mây
+sun	mặt trời
+moon	mặt trăng
+star	ngôi sao
+sky	bầu trời
+earth	trái đất
+ocean	đại dương
+sea	biển
+lake	hồ
+river	sông
+mountain	núi
+hill	đồi
+forest	rừng
+tree	cây
+flower	hoa
+grass	cỏ
+leaf	lá
+fruit	trái cây
+vegetable	rau
+meat	thịt
+fish	cá
+egg	trứng
+milk	sữa
+water	nước
+tea	trà
+coffee	cà phê
+juice	nước ép
+beer	bia
+wine	rượu
+bread	bánh mì
+rice	gạo
+pasta	mì ý
+potato	khoai tây
+cheese	phô mai
+butter	bơ
+salt	muối
+sugar	đường
+pepper	tiêu
+oil	dầu
+soup	súp
+salad	salát
+dessert	món tráng miệng
+breakfast	bữa sáng
+lunch	bữa trưa
+dinner	bữa tối
+snack	món ăn nhẹ
+meal	bữa ăn
+food	thức ăn
+drink	đồ uống
+cook	nấu ăn
+eat	ăn
+drink	uống
+taste	nếm
+smell	mùi
+see	nhìn
+hear	nghe
+touch	chạm
+feel	cảm nhận
+think	suy nghĩ
+know	biết
 understand	hiểu
 learn	học
-teach	dạy
-translate	dịch
-art	nghệ thuật
-music	âm nhạc
-dance	khiêu vũ
-theater	sân khấu
-film	phim
-book	sách
-magazine	tạp chí
-newspaper	báo
-computer	máy tính
-internet	internet
-email	email
-phone	điện thoại
-television	tivi
-radio	radio
-camera	máy ảnh
-car	ô tô
-bus	xe buýt
-train	tàu hỏa
-airplane	máy bay
-ship	tàu
-boat	thuyền
-bicycle	xe đạp
+remember	nhớ
+forget	quên
+like	thích 
+want	muốn
+need	cần
+have	có
+give	cho
+take	lấy
+buy	mua
+sell	bán
+work	làm việc
+play	chơi
+rest	nghỉ ngơi
+sleep	ngủ
+wake	thức dậy
 walk	đi bộ
 run	chạy
 jump	nhảy
-swim	bơi lội
-play	chơi
+sit	ngồi
+stand	đứng
+dance	nhảy múa
+sing	hát
+read	đọc
+write	viết
+draw	vẽ
+paint	vẽ
+listen	nghe
+speak	nói
+laugh	cười
+cry	khóc
+smile	mỉm cười
+frown	cau mày
+shout	hét
+whisper	thì thầm
+look	nhìn
 watch	xem
-hear	nghe
-smell	ngửi
-taste	nếm
-touch	chạm vào
-feel	cảm thấy
-want	muốn
-need	cần
-like	thích
-love	yêu
-hate	ghét
-think	nghĩ
-know	biết
-believe	tin tưởng
-hope	hy vọng
-dream	mơ ước
-remember	nhớ
-forget	quên
-understand	hiểu
-learn	học
+see	nhìn thấy
+find	tìm thấy
+lose	mất
+keep	giữ
+throw	ném
+catch	bắt
+hit	đánh
+kick	đá
+push	đẩy
+pull	kéo
+lift	nâng
+carry	mang
+open	mở
+close	đóng
+turn	quay
+move	di chuyển
+stop	dừng lại
+start	bắt đầu
+finish	kết thúc
+begin	bắt đầu
+end	kết thúc
+arrive	đến
+leave	rời đi
+enter	vào
+exit	ra
+stay	ở lại
+return	trở lại
+follow	theo
+lead	dẫn dắt
+meet	gặp
+greet	chào hỏi
+help	giúp đỡ
 teach	dạy
+learn	học
+study	học
+practice	thực hành
+try	cố gắng
+win	thắng
+lose	thua
+fight	chiến đấu
+defend	bảo vệ
+attack	tấn công
+kill	giết
+die	chết
+live	sống
+survive	sống sót
+grow	lớn lên
+shrink	co lại
+expand	mở rộng
+reduce	giảm bớt
+increase	tăng lên
+decrease	giảm xuống
+improve	cải thiện
+worsen	làm tồi tệ hơn
+change	thay đổi
+remain	giữ nguyên
+create	tạo ra
+destroy	phá hủy
+build	xây dựng
+repair	sửa chữa
+clean	dọn dẹp
+dirty	làm bẩn
+wash	rửa
+dry	làm khô
+wet	làm ướt
+heat	làm nóng
+cool	làm mát
+freeze	đông lạnh
+melt	làm tan chảy
+boil	đun sôi
+burn	đốt cháy
+cut	cắt
+tear	xé
+break	đập vỡ
+fix	sửa chữa
+tie	buộc
+untie	gỡ ra
+fold	gấp lại
+unfold	mở ra
+fill	đổ đầy
+empty	đổ hết
+add	thêm vào
+subtract	trừ đi
+multiply	nhân lên
+divide	chia ra
+equal	bằng
+compare	so sánh
+choose	chọn
+decide	quyết định
+agree	đồng ý
+disagree	không đồng ý
+accept	chấp nhận
+reject	từ chối
+approve	tán thành
+disapprove	phản đối
+praise	khen ngợi
+criticize	chỉ trích
+compliment	khen ngợi
+insult	chửi rủa
+apologize	xin lỗi
+forgive	thứ tha
+thank	cảm ơn
+blame	trách móc
+reward	thưởng
+punish	trừng phạt
+order	đặt hàng
+request	yêu cầu
+offer	đề nghị
+invite	mời
+welcome	chào đón
+farewell	tạm biệt
+celebrate	ăn mừng
+congratulate	chúc mừng
+comfort	an ủi
+encourage	động viên
+warn	cảnh báo
+advise	tư vấn
+suggest	đề xuất
+recommend	giới thiệu
+promise	hứa
+swear	thề
+lie	nói dối
 tell	kể
 ask	hỏi
 answer	trả lời
+explain	giải thích
+describe	mô tả
+discuss	thảo luận
+argue	tranh luận
+debate	tranh cãi
+gossip	tám chuyện
+complain	phàn nàn
+whine	than vãn
+yawn	ngáp
+sneeze	hắt hơi
+cough	ho
+hiccup	nấc
+burp	ợ
+fart	đánh rắm
+vomit	ói
+pee	đi tiểu
+poo	đi đại
+sweat	đổ mồ hôi
+bleed	chảy máu
+itch	ngứa
+hurt	đau
+heal	lành

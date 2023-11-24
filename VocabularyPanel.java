@@ -150,16 +150,23 @@ class VocabularyPanel extends JPanel {
         }
     }
 
-    private void dictionarySearcher(String prefix) {
+    private void dictionarySearcher(String query) {
         StringBuilder searchResults = new StringBuilder();
+        boolean found = false;
         for (Word word : dictionary.words) {
-            if (word.word_target.toLowerCase().startsWith(prefix.toLowerCase())) {
+            if (word.word_target.toLowerCase().contains(query.toLowerCase())) {
+                found = true;
                 searchResults.append(word.word_target).append(": ").append(word.word_explain).append("\n");
-            } else if (word.word_explain.toLowerCase().startsWith(prefix.toLowerCase())) {
+            } else if (word.word_explain.contains(query.toLowerCase())) {
+                found = true;
                 searchResults.append(word.word_explain).append(": ").append(word.word_target).append("\n");
             }
         }
-        meaningTextArea.setText(searchResults.toString());
+        if (found) {
+            meaningTextArea.setText(searchResults.toString());
+        } else {
+            meaningTextArea.setText("No matching words found.");
+        }
     }
 
     private void addWordDialog() {
