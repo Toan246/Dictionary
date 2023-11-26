@@ -7,9 +7,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-class VocabularyPanel extends JPanel {
-    public JTextArea wordListTextArea;
-    public JTextArea meaningTextArea;
+public class VocabularyPanel extends JPanel {
+    private JTextArea wordListTextArea;
+    private JTextArea meaningTextArea;
     private JButton searchButton;
     private JButton addWordButton;
     private JButton editWordButton;
@@ -17,7 +17,6 @@ class VocabularyPanel extends JPanel {
     private JButton pronounceButton;
     private JButton quizButton;
     private VocabularyGame game;
-
     private Dictionary dictionary;
     private DictionaryManagement management;
 
@@ -29,7 +28,7 @@ class VocabularyPanel extends JPanel {
 
         setLayout(new BorderLayout());
 
-        wordListTextArea = new JTextArea(15, 20);
+        wordListTextArea = new JTextArea(15, 10);
         wordListTextArea.setEditable(false);
         JScrollPane wordListScrollPane = new JScrollPane(wordListTextArea);
 
@@ -37,84 +36,97 @@ class VocabularyPanel extends JPanel {
         meaningTextArea.setEditable(false);
         JScrollPane meaningScrollPane = new JScrollPane(meaningTextArea);
 
-        Font font = new Font("Times New Roman", Font.PLAIN, 25);
+        Font font = new Font("Segoe UI", Font.PLAIN, 25);
         wordListTextArea.setFont(font);
         meaningTextArea.setFont(font);
 
-        JPanel buttonPanel = new JPanel();
-        searchButton = new JButton("Search");
-        addWordButton = new JButton("Add Word");
-        editWordButton = new JButton("Edit Word");
-        deleteWordButton = new JButton("Delete Word");
-        pronounceButton = new JButton("Pronounce");
-        quizButton = new JButton("Quiz");
+        JPanel buttonPanel = new JPanel(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.insets = new Insets(5, 5, 5, 5);
 
-        buttonPanel.add(searchButton);
-        buttonPanel.add(addWordButton);
-        buttonPanel.add(editWordButton);
-        buttonPanel.add(deleteWordButton);
-        buttonPanel.add(pronounceButton);
-        buttonPanel.add(quizButton);
+        searchButton = createStyledButton("Search", "res/search.png", 30);
+        addWordButton = createStyledButton("Add Word", "res/add.png", 30);
+        editWordButton = createStyledButton("Edit Word", "res/edit.png", 30);
+        deleteWordButton = createStyledButton("Delete Word", "res/delete.png", 30);
+        pronounceButton = createStyledButton("Pronounce", "res/speaker.png", 30);
+        quizButton = createStyledButton("Quiz", "res/quiz.png", 30);
 
-        Font buttonFont = new Font("Times New Roman", Font.PLAIN, 16);
-        searchButton.setFont(buttonFont);
-        addWordButton.setFont(buttonFont);
-        editWordButton.setFont(buttonFont);
-        deleteWordButton.setFont(buttonFont);
-        pronounceButton.setFont(buttonFont);
-        quizButton.setFont(buttonFont);
+        addButtonsToPanel(buttonPanel, gbc);
 
-
+        // Add components to the main panel
         add(wordListScrollPane, BorderLayout.WEST);
         add(meaningScrollPane, BorderLayout.CENTER);
         add(buttonPanel, BorderLayout.SOUTH);
 
+        // Update word list on initialization
         updateWordList();
 
         // Set up action listeners
-        searchButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String prefix = JOptionPane.showInputDialog("Enter prefix to search:");
-                dictionarySearcher(prefix);
+        addActionListeners();
+
+        // Set a modern look and feel
+        SwingUtilities.invokeLater(() -> {
+            try {
+                UIManager.setLookAndFeel("com.formdev.flatlaf.FlatDarkLaf");
+            } catch (UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+                e.printStackTrace();
             }
+        });
+    }
+
+    private JButton createStyledButton(String text, String iconPath, int iconSize) {
+        JButton button = new JButton(text);
+
+        // Use FlatLaf styling for buttons
+        button.putClientProperty("JButton.buttonType", "roundRect");
+
+        try {
+            ImageIcon icon = new ImageIcon(iconPath);
+            Image scaledIcon = icon.getImage().getScaledInstance(iconSize, iconSize, Image.SCALE_SMOOTH);
+            button.setIcon(new ImageIcon(scaledIcon));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return button;
+    }
+
+    private void addButtonsToPanel(JPanel panel, GridBagConstraints gbc) {
+        gbc.gridx = 0;
+        gbc.gridy++;
+        panel.add(searchButton, gbc);
+        gbc.gridx++;
+        panel.add(addWordButton, gbc);
+        gbc.gridx++;
+        panel.add(editWordButton, gbc);
+        gbc.gridx++;
+        panel.add(deleteWordButton, gbc);
+        gbc.gridx++;
+        panel.add(pronounceButton, gbc);
+        gbc.gridx++;
+        panel.add(quizButton, gbc);
+    }
+
+    private void addActionListeners() {
+        searchButton.addActionListener(e -> {
+            String query = JOptionPane.showInputDialog("Enter query to search:");
+            dictionarySearcher(query);
         });
 
-        addWordButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                addWordDialog();
-            }
+        addWordButton.addActionListener(e -> addWordDialog());
+
+        editWordButton.addActionListener(e -> editWordDialog());
+
+        deleteWordButton.addActionListener(e -> deleteWordDialog());
+
+        pronounceButton.addActionListener(e -> {
+            // Add pronunciation logic
+            JOptionPane.showMessageDialog(null, "Pronouncing the word.");
         });
 
-        editWordButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                editWordDialog();
-            }
-        });
-
-        deleteWordButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                deleteWordDialog();
-            }
-        });
-
-        pronounceButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Add pronunciation logic
-                JOptionPane.showMessageDialog(null, "Pronouncing the word.");
-            }
-        });
-
-        quizButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                runQuizGame();
-            }
-        });
+        quizButton.addActionListener(e -> runQuizGame());
     }
 
     private void updateWordList() {
@@ -124,11 +136,11 @@ class VocabularyPanel extends JPanel {
         }
         wordListTextArea.setText(wordListBuilder.toString());
 
-        wordListTextArea.addMouseListener(new MouseAdapter() {
+        wordListTextArea.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
-                JTextArea textArea = (JTextArea) e.getSource();
-                int offset = textArea.viewToModel(e.getPoint());
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JTextArea textArea = (JTextArea) evt.getSource();
+                int offset = textArea.viewToModel(evt.getPoint());
                 try {
                     int rowStart = Utilities.getRowStart(textArea, offset);
                     int rowEnd = Utilities.getRowEnd(textArea, offset);
@@ -172,15 +184,19 @@ class VocabularyPanel extends JPanel {
     private void addWordDialog() {
         String target = JOptionPane.showInputDialog("Enter English word to add:");
         String explain = JOptionPane.showInputDialog("Enter Vietnamese explanation:");
-        management.addWord(dictionary, target, explain);
-        updateWordList();
+        if (target != null && explain != null) {
+            management.addWord(dictionary, target, explain);
+            updateWordList();
+        }
     }
 
     private void editWordDialog() {
         String target = JOptionPane.showInputDialog("Enter English word to edit:");
         String newExplain = JOptionPane.showInputDialog("Enter new Vietnamese explanation:");
-        management.updateWord(dictionary, target, newExplain);
-        updateWordList();
+        if (target != null) {
+            management.updateWord(dictionary, target, newExplain);
+            updateWordList();
+        }
     }
 
     private void deleteWordDialog() {

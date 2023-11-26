@@ -1,5 +1,7 @@
 import javax.swing.*;
+import java.awt.*;
 import java.util.*;
+import java.util.List;
 
 import static com.sun.deploy.uitoolkit.ToolkitStore.dispose;
 
@@ -22,7 +24,6 @@ class VocabularyGame {
     }
 
     private void initializeQuizzes() {
-        // Add your own quiz questions here
         VocabularyQuiz quiz1 = new VocabularyQuiz("What ___ you doing?", new String[]{"A) are", "B) do", "C) is", "D) have"}, 0);
         VocabularyQuiz quiz2 = new VocabularyQuiz("He ____ basketball every weekend.", new String[]{"A) play", "B) plays", "C) played", "D) playing"}, 1);
         VocabularyQuiz quiz3 = new VocabularyQuiz("The capital of France is ____.", new String[]{"A) Berlin", "B) Madrid", "C) Paris", "D) Rome"}, 2);
@@ -43,6 +44,21 @@ class VocabularyGame {
         quizzes.add(quiz7);
         quizzes.add(quiz8);
         quizzes.add(quiz9);
+    }
+
+    private JButton createButton(String text, String iconPath) {
+        JButton button = new JButton(text);
+        button.setFont(new Font("Arial", Font.PLAIN, 14));
+
+        try {
+            ImageIcon icon = new ImageIcon(iconPath);
+            Image scaledIcon = icon.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+            button.setIcon(new ImageIcon(scaledIcon));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return button;
     }
 
     public VocabularyQuiz getNextQuiz() {
