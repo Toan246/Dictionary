@@ -3,8 +3,6 @@ import java.awt.*;
 import java.util.*;
 import java.util.List;
 
-import static com.sun.deploy.uitoolkit.ToolkitStore.dispose;
-
 class VocabularyGame {
     private List<VocabularyQuiz> quizzes;
     private int currentQuestionIndex;
@@ -33,7 +31,6 @@ class VocabularyGame {
         VocabularyQuiz quiz7 = new VocabularyQuiz("I ____ to the store yesterday.", new String[]{"A) go", "B) goes", "C) went", "D) going"}, 2);
         VocabularyQuiz quiz8 = new VocabularyQuiz("Mount Everest is the ____ mountain in the world.", new String[]{"A) tall", "B) taller", "C) tallest", "D) more tall"}, 2);
         VocabularyQuiz quiz9 = new VocabularyQuiz("Can you ____ me the way to the train station?", new String[]{"A) say", "B) tell", "C) speak", "D) talk"}, 1);
-        // Add more questions as needed
 
         quizzes.add(quiz1);
         quizzes.add(quiz2);

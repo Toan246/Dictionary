@@ -2,10 +2,6 @@ import javax.swing.*;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Utilities;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class VocabularyPanel extends JPanel {
     private JTextArea wordListTextArea;
@@ -55,18 +51,14 @@ public class VocabularyPanel extends JPanel {
 
         addButtonsToPanel(buttonPanel, gbc);
 
-        // Add components to the main panel
         add(wordListScrollPane, BorderLayout.WEST);
         add(meaningScrollPane, BorderLayout.CENTER);
         add(buttonPanel, BorderLayout.SOUTH);
 
-        // Update word list on initialization
         updateWordList();
 
-        // Set up action listeners
         addActionListeners();
 
-        // Set a modern look and feel
         SwingUtilities.invokeLater(() -> {
             try {
                 UIManager.setLookAndFeel("com.formdev.flatlaf.FlatDarkLaf");
@@ -79,7 +71,6 @@ public class VocabularyPanel extends JPanel {
     private JButton createStyledButton(String text, String iconPath, int iconSize) {
         JButton button = new JButton(text);
 
-        // Use FlatLaf styling for buttons
         button.putClientProperty("JButton.buttonType", "roundRect");
 
         try {
@@ -122,7 +113,6 @@ public class VocabularyPanel extends JPanel {
         deleteWordButton.addActionListener(e -> deleteWordDialog());
 
         pronounceButton.addActionListener(e -> {
-            // Add pronunciation logic
             JOptionPane.showMessageDialog(null, "Pronouncing the word.");
         });
 

@@ -21,7 +21,7 @@ class VocabularyQuiz {
         if (correctIndex >= 0 && correctIndex < choices.length) {
             return choices[correctIndex];
         }
-        return "N/A"; // or handle the case when correctIndex is out of bounds
+        return "N/A";
     }
 
     public boolean isCorrect(int userChoice) {
