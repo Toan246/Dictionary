@@ -6,6 +6,7 @@ class Word {
         this.word_target = target;
         this.word_explain = explain;
     }
+
     public String getWordTarget() {
         return word_target;
     }

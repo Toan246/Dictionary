@@ -1,5 +1,13 @@
 import java.io.*;
-import java.util.Scanner;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.sql.*;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 class DictionaryManagement {
     public void insertFromCommandline(Dictionary dictionary) {
@@ -23,13 +31,25 @@ class DictionaryManagement {
         try {
             BufferedReader reader = new BufferedReader(new FileReader(fileName));
             String line;
+
             while ((line = reader.readLine()) != null) {
-                String[] parts = line.split("\t");
-                if (parts.length == 2) {
-                    Word word = new Word(parts[0], parts[1]);
+                String[] parts = line.split(" /");
+                if (parts.length >= 2) {
+                    String wordTarget = parts[0].substring(1); // Bỏ đi ký tự @ ở đầu word_target
+
+                    // Đọc nghĩa từ dòng tiếp theo
+                    StringBuilder meaningBuilder = new StringBuilder();
+                    while ((line = reader.readLine()) != null && !line.trim().equals("")) {
+                        meaningBuilder.append(line.trim()).append("\n");
+                    }
+                    String meaning = meaningBuilder.toString().trim();
+
+                    // Tạo đối tượng Word và thêm vào danh sách từ điển
+                    Word word = new Word(wordTarget, meaning);
                     dictionary.words.add(word);
                 }
             }
+
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();

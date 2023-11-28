@@ -41,7 +41,7 @@ class DictionaryCommandline {
     public void dictionaryAdvanced() {
         Scanner scanner = new Scanner(System.in);
         Dictionary dictionary = new Dictionary();
-        management.insertFromFile(dictionary, "dictionaries");
+        management.insertFromFile(dictionary,"dictionaries");
 
         while (true) {
             System.out.println("Welcome to My Application!");
@@ -111,7 +111,7 @@ class DictionaryCommandline {
                 case 8:
                     System.out.print("Enter file name to import from: ");
                     String importFileName = scanner.nextLine();
-                    management.insertFromFile(dictionary, importFileName);
+                    management.insertFromFile(dictionary,importFileName);
                     break;
                 case 9:
                     System.out.print("Enter file name to export to: ");
@@ -127,7 +127,7 @@ class DictionaryCommandline {
 
     public String dictionaryLookup(String wordToLookup) {
         Dictionary dictionary = new Dictionary();
-        management.insertFromFile(dictionary, "dictionaries");
+        management.insertFromFile(dictionary,"dictionaries");
 
         for (Word word : dictionary.words) {
             if (word.word_target.equalsIgnoreCase(wordToLookup)) {

@@ -1,7 +1,19 @@
+import com.sun.deploy.cache.JarSigningData;
+import com.sun.deploy.net.HttpRequest;
+import com.sun.deploy.net.HttpResponse;
+import sun.net.www.http.HttpClient;
+
 import javax.swing.*;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Utilities;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URI;
 
 public class VocabularyPanel extends JPanel {
     private JTextArea wordListTextArea;
@@ -20,7 +32,7 @@ public class VocabularyPanel extends JPanel {
         this.game = new VocabularyGame();
         this.dictionary = new Dictionary();
         this.management = new DictionaryManagement();
-        management.insertFromFile(dictionary, "dictionaries");
+        management.insertFromFile(dictionary,"dictionaries");
 
         setLayout(new BorderLayout());
 
@@ -51,14 +63,18 @@ public class VocabularyPanel extends JPanel {
 
         addButtonsToPanel(buttonPanel, gbc);
 
+        // Add components to the main panel
         add(wordListScrollPane, BorderLayout.WEST);
         add(meaningScrollPane, BorderLayout.CENTER);
         add(buttonPanel, BorderLayout.SOUTH);
 
+        // Update word list on initialization
         updateWordList();
 
+        // Set up action listeners
         addActionListeners();
 
+        // Set a modern look and feel
         SwingUtilities.invokeLater(() -> {
             try {
                 UIManager.setLookAndFeel("com.formdev.flatlaf.FlatDarkLaf");
@@ -71,6 +87,7 @@ public class VocabularyPanel extends JPanel {
     private JButton createStyledButton(String text, String iconPath, int iconSize) {
         JButton button = new JButton(text);
 
+        // Use FlatLaf styling for buttons
         button.putClientProperty("JButton.buttonType", "roundRect");
 
         try {
@@ -101,9 +118,12 @@ public class VocabularyPanel extends JPanel {
     }
 
     private void addActionListeners() {
-        searchButton.addActionListener(e -> {
-            String query = JOptionPane.showInputDialog("Enter query to search:");
-            dictionarySearcher(query);
+        searchButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String prefix = JOptionPane.showInputDialog("Enter prefix to search:");
+                dictionarySearcher(prefix);
+            }
         });
 
         addWordButton.addActionListener(e -> addWordDialog());
@@ -113,6 +133,7 @@ public class VocabularyPanel extends JPanel {
         deleteWordButton.addActionListener(e -> deleteWordDialog());
 
         pronounceButton.addActionListener(e -> {
+            // Add pronunciation logic
             JOptionPane.showMessageDialog(null, "Pronouncing the word.");
         });
 
@@ -126,11 +147,11 @@ public class VocabularyPanel extends JPanel {
         }
         wordListTextArea.setText(wordListBuilder.toString());
 
-        wordListTextArea.addMouseListener(new java.awt.event.MouseAdapter() {
+        wordListTextArea.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JTextArea textArea = (JTextArea) evt.getSource();
-                int offset = textArea.viewToModel(evt.getPoint());
+            public void mouseClicked(MouseEvent e) {
+                JTextArea textArea = (JTextArea) e.getSource();
+                int offset = textArea.viewToModel(e.getPoint());
                 try {
                     int rowStart = Utilities.getRowStart(textArea, offset);
                     int rowEnd = Utilities.getRowEnd(textArea, offset);
@@ -144,28 +165,47 @@ public class VocabularyPanel extends JPanel {
     }
 
     private void displayTranslation(String selectedWord) {
+        StringBuilder translationBuilder = new StringBuilder();
         for (Word word : dictionary.words) {
             if (word.word_target.equalsIgnoreCase(selectedWord)) {
-                meaningTextArea.setText(word.word_explain);
+                String[] explanations = word.word_explain.split("\n");
+
+                for (String explanation : explanations) {
+                    translationBuilder.append(explanation.trim()).append("\n");
+                }
+
+                meaningTextArea.setText(translationBuilder.toString().trim());
+
+                meaningTextArea.setCaretPosition(0);
+
                 break;
             }
         }
     }
 
-    private void dictionarySearcher(String query) {
+    private void dictionarySearcher(String prefix) {
         StringBuilder searchResults = new StringBuilder();
         boolean found = false;
+        int count = 0;
         for (Word word : dictionary.words) {
-            if (word.word_target.toLowerCase().contains(query.toLowerCase())) {
+            if (count>=5){
+                break;
+            }
+            if (word.word_target.toLowerCase().startsWith(prefix.toLowerCase())) {
                 found = true;
                 searchResults.append(word.word_target).append(": ").append(word.word_explain).append("\n");
-            } else if (word.word_explain.contains(query.toLowerCase())) {
+                searchResults.append("\n");
+                count++;
+            } else if (word.word_explain.toLowerCase().startsWith(prefix.toLowerCase())) {
                 found = true;
                 searchResults.append(word.word_explain).append(": ").append(word.word_target).append("\n");
+                searchResults.append("\n");
+                count++;
             }
         }
         if (found) {
             meaningTextArea.setText(searchResults.toString());
+            meaningTextArea.setCaretPosition(0);
         } else {
             meaningTextArea.setText("No matching words found.");
         }

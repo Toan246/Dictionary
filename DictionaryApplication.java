@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import com.formdev.flatlaf.FlatDarkLaf;
 
 public class DictionaryApplication {
