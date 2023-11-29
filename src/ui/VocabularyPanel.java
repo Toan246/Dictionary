@@ -32,7 +32,7 @@ public class VocabularyPanel extends JPanel {
         this.game = new VocabularyGame();
         this.dictionary = new Dictionary();
         this.management = new DictionaryManagement();
-        management.insertFromFile(dictionary,"dictionaries");
+        management.insertFromFile(dictionary,"data/dictionaries");
 
         setLayout(new BorderLayout());
 
