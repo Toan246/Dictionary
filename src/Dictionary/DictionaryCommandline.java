@@ -1,3 +1,8 @@
+package src.Dictionary;
+
+import src.game.VocabularyGame;
+import src.model.Word;
+
 import java.util.Scanner;
 
 class DictionaryCommandline {

@@ -1,7 +1,11 @@
+package src.Dictionary;
+
+import src.model.Word;
+
 import java.util.ArrayList;
 
-class Dictionary {
-    ArrayList<Word> words;
+public class Dictionary {
+    public ArrayList<Word> words;
 
     public Dictionary() {
         this.words = new ArrayList<>();

@@ -1,7 +1,10 @@
-import com.sun.deploy.cache.JarSigningData;
-import com.sun.deploy.net.HttpRequest;
-import com.sun.deploy.net.HttpResponse;
-import sun.net.www.http.HttpClient;
+package src.ui;
+
+import src.Dictionary.Dictionary;
+import src.Dictionary.DictionaryManagement;
+import src.game.QuizDialog;
+import src.game.VocabularyGame;
+import src.model.Word;
 
 import javax.swing.*;
 import javax.swing.text.BadLocationException;
@@ -11,9 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.URI;
+
 
 public class VocabularyPanel extends JPanel {
     private JTextArea wordListTextArea;
@@ -25,8 +26,9 @@ public class VocabularyPanel extends JPanel {
     private JButton pronounceButton;
     private JButton quizButton;
     private VocabularyGame game;
-    private Dictionary dictionary;
+    private src.Dictionary.Dictionary dictionary;
     private DictionaryManagement management;
+
 
     public VocabularyPanel() {
         this.game = new VocabularyGame();
@@ -63,18 +65,14 @@ public class VocabularyPanel extends JPanel {
 
         addButtonsToPanel(buttonPanel, gbc);
 
-        // Add components to the main panel
         add(wordListScrollPane, BorderLayout.WEST);
         add(meaningScrollPane, BorderLayout.CENTER);
         add(buttonPanel, BorderLayout.SOUTH);
 
-        // Update word list on initialization
         updateWordList();
 
-        // Set up action listeners
         addActionListeners();
 
-        // Set a modern look and feel
         SwingUtilities.invokeLater(() -> {
             try {
                 UIManager.setLookAndFeel("com.formdev.flatlaf.FlatDarkLaf");
@@ -87,7 +85,6 @@ public class VocabularyPanel extends JPanel {
     private JButton createStyledButton(String text, String iconPath, int iconSize) {
         JButton button = new JButton(text);
 
-        // Use FlatLaf styling for buttons
         button.putClientProperty("JButton.buttonType", "roundRect");
 
         try {
@@ -137,15 +134,6 @@ public class VocabularyPanel extends JPanel {
             JOptionPane.showMessageDialog(null, "Pronouncing the word.");
         });
 
-        quizButton.addActionListener(e -> runQuizGame());
-    }
-
-    private void updateWordList() {
-        StringBuilder wordListBuilder = new StringBuilder();
-        for (Word word : dictionary.words) {
-            wordListBuilder.append(word.word_target).append("\n");
-        }
-        wordListTextArea.setText(wordListBuilder.toString());
 
         wordListTextArea.addMouseListener(new MouseAdapter() {
             @Override
@@ -159,6 +147,34 @@ public class VocabularyPanel extends JPanel {
                     displayTranslation(selectedWord);
                 } catch (BadLocationException ex) {
                     ex.printStackTrace();
+                }
+            }
+        });
+
+        quizButton.addActionListener(e -> runQuizGame());
+    }
+
+    private void updateWordList() {
+        StringBuilder wordListBuilder = new StringBuilder();
+        for (Word word : dictionary.words) {
+            wordListBuilder.append(word.word_target).append("\n");
+        }
+        wordListTextArea.setText(wordListBuilder.toString());
+
+        wordListTextArea.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (SwingUtilities.isLeftMouseButton(e) && e.getClickCount() == 1) {
+                    JTextArea textArea = (JTextArea) e.getSource();
+                    int offset = textArea.viewToModel(e.getPoint());
+                    try {
+                        int rowStart = Utilities.getRowStart(textArea, offset);
+                        int rowEnd = Utilities.getRowEnd(textArea, offset);
+                        String selectedWord = textArea.getText().substring(rowStart, rowEnd).trim();
+                        displayTranslation(selectedWord);
+                    } catch (BadLocationException ex) {
+                        ex.printStackTrace();
+                    }
                 }
             }
         });
@@ -217,6 +233,7 @@ public class VocabularyPanel extends JPanel {
         if (target != null && explain != null) {
             management.addWord(dictionary, target, explain);
             updateWordList();
+            wordListTextArea.setCaretPosition(0);
         }
     }
 
@@ -227,12 +244,14 @@ public class VocabularyPanel extends JPanel {
             management.updateWord(dictionary, target, newExplain);
             updateWordList();
         }
+        wordListTextArea.setCaretPosition(0);
     }
 
     private void deleteWordDialog() {
         String target = JOptionPane.showInputDialog("Enter English word to delete:");
         management.removeWord(dictionary, target);
         updateWordList();
+        wordListTextArea.setCaretPosition(0);
     }
 
     private void runQuizGame() {

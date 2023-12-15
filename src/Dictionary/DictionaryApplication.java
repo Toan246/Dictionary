@@ -1,6 +1,9 @@
-import javax.swing.*;
-import java.awt.*;
+package src.Dictionary;
+
 import com.formdev.flatlaf.FlatDarkLaf;
+import src.ui.VocabularyPanel;
+
+import javax.swing.*;
 
 public class DictionaryApplication {
     public static void main(String[] args) {

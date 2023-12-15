@@ -1,9 +1,11 @@
+package src.game;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-class QuizDialog extends JDialog {
+public class QuizDialog extends JDialog {
     private VocabularyGame game;
     private JTextArea questionTextArea;
     private ButtonGroup answerGroup;

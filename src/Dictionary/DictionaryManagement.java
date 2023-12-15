@@ -1,15 +1,11 @@
-import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.sql.*;
-import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.stream.Stream;
+package src.Dictionary;
 
-class DictionaryManagement {
+import src.model.Word;
+
+import java.io.*;
+import java.util.Scanner;
+
+public class DictionaryManagement implements DictionaryManager {
     public void insertFromCommandline(Dictionary dictionary) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the number of words: ");
